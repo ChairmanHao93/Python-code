@@ -1,0 +1,19 @@
+####用VScode 打开.db 的文件
+sqlite3 Practice.db  ##Open the database with SQLite
+.tables  -- List all tables
+PRAGMA table_info(BodyWeight); ##This will display column names, types, and constraints.
+SELECT name FROM exercise; ###This will retrieve all entries in the name column from the exercise table.
+
+
+####Primary Key: A column (or set of columns) in a table that uniquely identifies each record within the table. There can only be one primary key per table, and its values must be unique and not null.
+
+####Foreign Key: A column in one table that refers to the primary key of another table. It establishes a relationship between the two tables.
+
+SELECT e._id, e.name, t.metric_weight
+FROM exercise e
+JOIN training_log t ON e._id = t.exercise_id;  ###This assumes that exercise_id is the foreign key in training_log that references the _id in exercise. Adjust the column names as per your schema.
+
+###write me a sql to return first five rows of table (BodyWeight)
+SELECT * FROM BodyWeight
+LIMIT 5;
+
